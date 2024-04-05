@@ -18,7 +18,7 @@
             "label": "Heading",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading1"
+            "multi": "heading1"
           }
         },
         "body": {
@@ -51,6 +51,13 @@
             "label": "Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "video_url": {
+          "type": "Text",
+          "config": {
+            "label": "Video URL",
+            "placeholder": ""
           }
         }
       },

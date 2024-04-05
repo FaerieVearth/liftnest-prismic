@@ -288,12 +288,12 @@ export interface HeroSliceDefaultPrimary {
   /**
    * Heading field in *Hero → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.primary.heading
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  heading: prismic.TitleField;
+  heading: prismic.RichTextField;
 
   /**
    * body field in *Hero → Primary*
@@ -334,6 +334,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Video URL field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.video_url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_url: prismic.KeyTextField;
 }
 
 /**
