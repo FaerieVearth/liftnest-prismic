@@ -9,7 +9,6 @@ import ButtonLink from "@/app/components/ButtonLink";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
-import clsx from "clsx";
 
 type NavBarProps = {
   settings: Content.SettingsDocument;
