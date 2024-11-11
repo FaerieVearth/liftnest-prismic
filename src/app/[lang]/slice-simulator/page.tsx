@@ -10,10 +10,10 @@ import { components } from "@/slices";
 export default function SliceSimulatorPage({
   searchParams,
 }: SliceSimulatorParams) {
-  const slices = getSlices(searchParams.state);
+  const slices = getSlices("");
 
   return (
-    <SliceSimulator background="#f2f2f3">
+    <SliceSimulator>
       <SliceZone slices={slices} components={components} />
     </SliceSimulator>
   );
