@@ -1,5 +1,6 @@
 // ./src/components/LanguageSwitcher.tsx
 
+import { cn } from '@nextui-org/react';
 import { PrismicNextLink } from '@prismicio/next';
 
 interface LanguageSwitcherProps {
@@ -9,6 +10,7 @@ interface LanguageSwitcherProps {
     url: string;
   }[];
   activeLocale: string;
+  className?: string;
 }
 
 const localeLabels = {
@@ -19,17 +21,19 @@ const localeLabels = {
 // Define the preferred order
 const localeOrder = ['de-de', 'en-us'] as const;
 
-export const LanguageSwitcher = ({ locales, activeLocale }: LanguageSwitcherProps) => {
+export const LanguageSwitcher = ({ locales, activeLocale, className }: LanguageSwitcherProps) => {
   // Sort locales based on predefined order
   const sortedLocales = [...locales].sort((a, b) => 
     localeOrder.indexOf(a.lang as typeof localeOrder[number]) - 
     localeOrder.indexOf(b.lang as typeof localeOrder[number])
   );
-
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span aria-hidden={true} className="text-gray-400">🌐</span>
-      <ul className="flex flex-wrap gap-2">
+    <div className={cn(`flex flex-row items-center gap-2`, className)}>
+      
+      <ul className="flex flex-row gap-2">
+        <li>
+          <span aria-hidden={true} className="text-gray-400">🌐</span>
+        </li>
         {sortedLocales.map((locale) => {
           const isCurrentLocale = locale.lang === activeLocale;
           return (
