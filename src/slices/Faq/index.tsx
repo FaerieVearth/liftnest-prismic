@@ -7,6 +7,13 @@ import Bounded from "@/app/components/Bounded";
 export type FaqProps = SliceComponentProps<Content.FaqSlice>;
 
 const Faq = ({ slice }: FaqProps): JSX.Element => {
+
+  const itemClasses = {
+    base: "py-0 w-full",
+    title: "font-normal text-2xl hover:underline",
+    indicator: "text-2xl text-black ",
+    content: "text-small px-2",
+  }
   return (
     <Bounded
       className="text-start"
@@ -27,7 +34,7 @@ const Faq = ({ slice }: FaqProps): JSX.Element => {
             <div className="mb-6 mt-10 max-w-xl">
               <PrismicRichText field={slice.primary.body} />
             </div>
-            <Accordion selectionMode="multiple" variant="shadow">
+            <Accordion selectionMode="multiple" itemClasses={itemClasses}>
               {slice.primary.qna.map((item, index) => (
                 <AccordionItem key={index} title={item.question}>
                   {item.answer}

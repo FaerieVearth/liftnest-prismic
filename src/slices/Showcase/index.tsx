@@ -67,6 +67,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
         </div>
         <PrismicNextImage
           field={slice.primary.image}
+          alt=""
           className={clsx(
             "rounded-xl opacity-90 shadow-2xl lg:col-span-2 lg:pt-0 object-cover max-h-[400px]",
             slice.variation === "reverse"

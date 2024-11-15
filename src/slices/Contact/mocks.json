@@ -1,0 +1,44 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "slave",
+				"type": "Text"
+			},
+			"body": {
+				"__TYPE__": "FieldContent",
+				"value": "occasionally",
+				"type": "Text"
+			},
+			"fb_url": {
+				"__TYPE__": "FieldContent",
+				"value": "complete",
+				"type": "Text"
+			},
+			"insta_url": {
+				"__TYPE__": "FieldContent",
+				"value": "stand",
+				"type": "Text"
+			},
+			"sendto_mail": {
+				"__TYPE__": "FieldContent",
+				"value": "get",
+				"type": "Text"
+			},
+			"send": {
+				"__TYPE__": "FieldContent",
+				"value": "near",
+				"type": "Text"
+			},
+			"gdpr": {
+				"__TYPE__": "FieldContent",
+				"value": "easily",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

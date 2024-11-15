@@ -20,7 +20,7 @@ export default function Bounded({
       )}
       {...restProps}
     >
-      <div className="mx-auto flex w-full max-w-[1450px] flex-col items-center">
+      <div className={clsx("mx-auto flex w-full max-w-[1450px] flex-col items-center", className)}>
         {children}
       </div>
     </Comp>

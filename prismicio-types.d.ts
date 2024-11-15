@@ -5,6 +5,8 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | ContactSlice
+  | ImagesSlice
   | FaqSlice
   | ShowcaseSlice
   | BentoSlice
@@ -283,6 +285,111 @@ type BentoSliceVariation = BentoSliceDefault;
 export type BentoSlice = prismic.SharedSlice<"bento", BentoSliceVariation>;
 
 /**
+ * Primary content in *Contact → Default → Primary*
+ */
+export interface ContactSliceDefaultPrimary {
+  /**
+   * title field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * body field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  body: prismic.KeyTextField;
+
+  /**
+   * fb url field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.fb_url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  fb_url: prismic.KeyTextField;
+
+  /**
+   * insta url field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.insta_url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  insta_url: prismic.KeyTextField;
+
+  /**
+   * sendto mail field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.sendto_mail
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sendto_mail: prismic.KeyTextField;
+
+  /**
+   * send field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.send
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  send: prismic.KeyTextField;
+
+  /**
+   * gdpr field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.gdpr
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  gdpr: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation = ContactSliceDefault;
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
+>;
+
+/**
  * Item in *Faq → Default → Primary → QnA*
  */
 export interface FaqSliceDefaultPrimaryQnaItem {
@@ -460,6 +567,73 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *Images → Default → Primary → element*
+ */
+export interface ImagesSliceDefaultPrimaryElementItem {
+  /**
+   * image field in *Images → Default → Primary → element*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images.default.primary.element[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * tag field in *Images → Default → Primary → element*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images.default.primary.element[].tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Images → Default → Primary*
+ */
+export interface ImagesSliceDefaultPrimary {
+  /**
+   * element field in *Images → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images.default.primary.element[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  element: prismic.GroupField<Simplify<ImagesSliceDefaultPrimaryElementItem>>;
+}
+
+/**
+ * Default variation for Images Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Images*
+ */
+type ImagesSliceVariation = ImagesSliceDefault;
+
+/**
+ * Images Shared Slice
+ *
+ * - **API ID**: `images`
+ * - **Description**: Images
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImagesSlice = prismic.SharedSlice<"images", ImagesSliceVariation>;
 
 /**
  * Primary content in *RichText → Default → Primary*
@@ -732,6 +906,10 @@ declare module "@prismicio/client" {
       BentoSliceDefaultItem,
       BentoSliceVariation,
       BentoSliceDefault,
+      ContactSlice,
+      ContactSliceDefaultPrimary,
+      ContactSliceVariation,
+      ContactSliceDefault,
       FaqSlice,
       FaqSliceDefaultPrimaryQnaItem,
       FaqSliceDefaultPrimary,
@@ -741,6 +919,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ImagesSlice,
+      ImagesSliceDefaultPrimaryElementItem,
+      ImagesSliceDefaultPrimary,
+      ImagesSliceVariation,
+      ImagesSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
