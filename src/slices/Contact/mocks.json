@@ -37,6 +37,41 @@
 				"__TYPE__": "FieldContent",
 				"value": "easily",
 				"type": "Text"
+			},
+			"name": {
+				"__TYPE__": "FieldContent",
+				"value": "party",
+				"type": "Text"
+			},
+			"email": {
+				"__TYPE__": "FieldContent",
+				"value": "by",
+				"type": "Text"
+			},
+			"message": {
+				"__TYPE__": "FieldContent",
+				"value": "subject",
+				"type": "Text"
+			},
+			"success": {
+				"__TYPE__": "FieldContent",
+				"value": "late",
+				"type": "Text"
+			},
+			"fail": {
+				"__TYPE__": "FieldContent",
+				"value": "replace",
+				"type": "Text"
+			},
+			"loading": {
+				"__TYPE__": "FieldContent",
+				"value": "iron",
+				"type": "Text"
+			},
+			"mandatory": {
+				"__TYPE__": "FieldContent",
+				"value": "tool",
+				"type": "Text"
 			}
 		},
 		"items": []

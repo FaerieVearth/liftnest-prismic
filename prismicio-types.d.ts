@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | MarkupSlice
   | ContactSlice
   | ImagesSlice
   | FaqSlice
@@ -357,6 +358,76 @@ export interface ContactSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   gdpr: prismic.KeyTextField;
+
+  /**
+   * name field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * email field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * message field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.message
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  message: prismic.KeyTextField;
+
+  /**
+   * success field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.success
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  success: prismic.KeyTextField;
+
+  /**
+   * fail field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.fail
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  fail: prismic.KeyTextField;
+
+  /**
+   * loading field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.loading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  loading: prismic.KeyTextField;
+
+  /**
+   * mandatory field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.mandatory
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mandatory: prismic.KeyTextField;
 }
 
 /**
@@ -634,6 +705,58 @@ type ImagesSliceVariation = ImagesSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ImagesSlice = prismic.SharedSlice<"images", ImagesSliceVariation>;
+
+/**
+ * Primary content in *Markup → Default → Primary*
+ */
+export interface MarkupSliceDefaultPrimary {
+  /**
+   * title field in *Markup → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: markup.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * markup field in *Markup → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: markup.default.primary.markup
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  markup: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Markup Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MarkupSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MarkupSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Markup*
+ */
+type MarkupSliceVariation = MarkupSliceDefault;
+
+/**
+ * Markup Shared Slice
+ *
+ * - **API ID**: `markup`
+ * - **Description**: Markup
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MarkupSlice = prismic.SharedSlice<"markup", MarkupSliceVariation>;
 
 /**
  * Primary content in *RichText → Default → Primary*
@@ -924,6 +1047,10 @@ declare module "@prismicio/client" {
       ImagesSliceDefaultPrimary,
       ImagesSliceVariation,
       ImagesSliceDefault,
+      MarkupSlice,
+      MarkupSliceDefaultPrimary,
+      MarkupSliceVariation,
+      MarkupSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

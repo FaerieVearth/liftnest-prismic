@@ -60,6 +60,55 @@
             "label": "gdpr",
             "placeholder": ""
           }
+        },
+        "name": {
+          "type": "Text",
+          "config": {
+            "label": "name",
+            "placeholder": ""
+          }
+        },
+        "email": {
+          "type": "Text",
+          "config": {
+            "label": "email",
+            "placeholder": ""
+          }
+        },
+        "message": {
+          "type": "Text",
+          "config": {
+            "label": "message",
+            "placeholder": ""
+          }
+        },
+        "success": {
+          "type": "Text",
+          "config": {
+            "label": "success",
+            "placeholder": ""
+          }
+        },
+        "fail": {
+          "type": "Text",
+          "config": {
+            "label": "fail",
+            "placeholder": ""
+          }
+        },
+        "loading": {
+          "type": "Text",
+          "config": {
+            "label": "loading",
+            "placeholder": ""
+          }
+        },
+        "mandatory": {
+          "type": "Text",
+          "config": {
+            "label": "mandatory",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

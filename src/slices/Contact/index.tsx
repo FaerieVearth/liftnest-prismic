@@ -22,6 +22,13 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
       instagram={slice.primary.insta_url ?? ""}
       gdprText={slice.primary.gdpr ?? ""}
       sendButtonText={slice.primary.send ?? ""}
+      nameLabel={slice.primary.name ?? ""}
+      emailLabel={slice.primary.email ?? ""}
+      messageLabel={slice.primary.message ?? ""}
+      successMessage={slice.primary.success ?? ""}
+      errorMessage={slice.primary.fail ?? ""}
+      loading={slice.primary.loading ?? ""}
+      mandatory={slice.primary.mandatory ?? ""}
     />
   );
 };

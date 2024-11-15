@@ -11,6 +11,13 @@ interface ContactFormProps {
   gdprText: string;
   sendButtonText?: string;
   recipientEmail: string;
+  nameLabel?: string;
+  emailLabel?: string;
+  messageLabel?: string;
+  successMessage?: string;
+  errorMessage?: string;
+  loading?: string;
+  mandatory?: string;
 }
 
 const ContactForm = ({
@@ -19,7 +26,14 @@ const ContactForm = ({
   facebook,
   instagram,
   gdprText,
-  sendButtonText = "Send Message"
+  sendButtonText = "Send Message",
+  nameLabel = "Name",
+  emailLabel = "Email",
+  messageLabel = "Message",
+  successMessage = "Message sent successfully!",
+  errorMessage = "Failed to send message. Please try again later.",
+  loading = "Loading...",
+  mandatory = "This field is mandatory",
 }: ContactFormProps): JSX.Element => {
   const [formData, setFormData] = useState({
     name: "",
@@ -86,16 +100,14 @@ const ContactForm = ({
       const data = await response.json();
 
       if (response.ok) {
-        setSubmitStatus("Message sent successfully!");
+        setSubmitStatus(successMessage);
         setFormData({ name: "", email: "", message: "", gdpr: false });
       } else {
-        setSubmitStatus(
-          data.error || "Failed to send message. Please try again.",
-        );
+        setSubmitStatus(errorMessage);
       }
     } catch (error) {
       console.error("Submission error:", error);
-      setSubmitStatus("An error occurred. Please try again.");
+      setSubmitStatus(errorMessage);
     }
     setIsSubmitting(false);
   };
@@ -154,11 +166,14 @@ const ContactForm = ({
         >
           <div>
             <label htmlFor="name" className="mb-1 block text-sm font-medium">
-              Name
+              {nameLabel}
             </label>
             <input
               type="text"
               id="name"
+              onInvalid={(e) => {
+                (e.target as HTMLInputElement).setCustomValidity(mandatory);
+              }}
               required
               className="w-full rounded-md border px-4 py-2 text-black"
               value={formData.name}
@@ -169,11 +184,14 @@ const ContactForm = ({
           </div>
           <div>
             <label htmlFor="email" className="mb-1 block text-sm font-medium">
-              Email
+              {emailLabel}
             </label>
             <input
               type="email"
               id="email"
+              onInvalid={(e) => {
+                (e.target as HTMLInputElement).setCustomValidity(mandatory);
+              }}
               required
               className="w-full rounded-md border px-4 py-2 text-black"
               value={formData.email}
@@ -184,10 +202,13 @@ const ContactForm = ({
           </div>
           <div>
             <label htmlFor="message" className="mb-1 block text-sm font-medium">
-              Message
+              {messageLabel}
             </label>
             <textarea
               id="message"
+              onInvalid={(e) => {
+                (e.target as HTMLInputElement).setCustomValidity(mandatory);
+              }}
               required
               rows={4}
               className="w-full rounded-md border px-4 py-2 text-black"
@@ -224,7 +245,7 @@ const ContactForm = ({
             disabled={isSubmitting}
             className="w-full rounded-xl bg-[#383D2A] px-4 py-2 text-white hover:bg-[#484D3A] disabled:opacity-50"
           >
-            {isSubmitting ? "Sending..." : sendButtonText}
+            {isSubmitting ? loading : sendButtonText}
           </button>
         </form>
       </div>

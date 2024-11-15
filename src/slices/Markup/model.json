@@ -1,0 +1,35 @@
+{
+  "id": "markup",
+  "type": "SharedSlice",
+  "name": "Markup",
+  "description": "Markup",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "markup": {
+          "type": "StructuredText",
+          "config": {
+            "label": "markup",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading2,embed,hyperlink"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

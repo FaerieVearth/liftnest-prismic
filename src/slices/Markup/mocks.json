@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "massage",
+				"type": "Text"
+			},
+			"markup": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Deserunt minim eiusmod occaecat anim non cupidatat."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
