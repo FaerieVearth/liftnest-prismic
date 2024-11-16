@@ -2,8 +2,8 @@ import { PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
 import "../../app/globals.css";
 import { DM_Sans } from "next/font/google";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { getLocales } from "../utils/getLocales";
 
 const dmSans = DM_Sans({
@@ -24,10 +24,10 @@ export default async function RootLayout({
   const locales = await getLocales(home, client);
   return (
     <html lang="en" className={dmSans.variable}>
-      <body className="bg-[#FBF8EF] text-[#111410]">
+      <body className="bg-[#FBF8EF] text-[#111410] min-h-screen flex flex-col justify-between">
         <Header locales={locales} activeLocale={lang} />
         {children}
-        <Footer />
+        <Footer activeLocale={lang} />
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>

@@ -21,14 +21,14 @@ export default function AnimatedContent({
     }
     gsap.fromTo(
       container.current,
-      { y: 200, opacity: 0 },
+      { y: -200, opacity: 0 },
       {
         y: 0,
         opacity: 1,
         duration: 0.9,
         scrollTrigger: {
-          trigger: container.current,
-          start: "top bottom-=40%",
+          trigger: container.current + " + 300px",
+          start: "top top+=70%",
           toggleActions: "play pause resume reverse",
         },
       },

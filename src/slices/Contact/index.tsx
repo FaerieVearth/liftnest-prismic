@@ -1,8 +1,8 @@
-import Bounded from "@/app/components/Bounded";
+import Bounded from "@/app/[lang]/components/Bounded";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 import { useState, FormEvent } from "react";
-import ContactForm from "@/app/components/ContactForm";
+import ContactForm from "@/app/[lang]/components/ContactForm";
 
 /**
  * Props for `Contact`.

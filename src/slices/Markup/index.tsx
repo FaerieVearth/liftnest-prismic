@@ -1,4 +1,4 @@
-import Bounded from "@/app/components/Bounded";
+import Bounded from "@/app/[lang]/components/Bounded";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
@@ -13,9 +13,11 @@ const Markup = ({ slice }: MarkupProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="prose prose-lg prose-invert mx-auto">
+      <div className="prose prose-lg prose-invert mx-auto my-4 md:my-8">
         {slice.primary.title && (
-          <h2 className="mb-8 text-3xl font-semibold">{slice.primary.title}</h2>
+          <h2 className="w-full mb-8 text-3xl font-semibold text-center md:text-5xl">
+            {slice.primary.title}
+          </h2>
         )}
         {slice.primary.markup && (
           <PrismicRichText

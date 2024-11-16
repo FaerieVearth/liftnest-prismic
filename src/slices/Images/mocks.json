@@ -46,6 +46,28 @@
 						]
 					}
 				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Finest"
+						}
+					}
+				]
+			},
+			"subheading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Esse aute ut esse elit tempor reprehenderit eu consequat eiusmod dolor esse et esse cillum aute."
+						}
+					}
+				]
 			}
 		},
 		"items": []

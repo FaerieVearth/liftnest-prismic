@@ -1,12 +1,12 @@
 "use client";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { useState } from "react";
-import Bounded from "@/app/components/Bounded";
-
+import Bounded from "@/app/[lang]/components/Bounded";
+import AnimatedContent from "./AnimatedContent";
 /**
  * Props for `Images`.
  */
@@ -36,6 +36,52 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="relative"
     >
+      {/*       <AnimatedContent>
+        <div className="mb-8 mt-12">
+        <PrismicRichText
+          field={slice.primary.heading}
+          components={{
+            heading2: ({ children }) => (
+              <h2 className="text-balanced prose text-center text-3xl font-medium md:text-5xl">
+                {children}
+              </h2>
+            ),
+            em: ({ children }) => (
+              <em className="bg-gradient-to-b from-[#ffc46b] to-[#fc5f2f] bg-clip-text not-italic text-transparent">
+                {children}
+              </em>
+            ),
+          }}
+        />
+                <p className="prose text-center text-lg md:text-xl">
+            <PrismicRichText field={slice.primary.subheading} />
+          </p>
+        </div>
+      </AnimatedContent> */}
+
+      {slice.primary.heading && slice.primary.heading.length > 0 && (
+        <div className="mb-8 mt-12">
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading2: ({ children }) => (
+                <h2 className="text-balanced prose text-center text-3xl font-medium md:text-5xl">
+                  {children}
+                </h2>
+              ),
+              em: ({ children }) => (
+                <em className="bg-gradient-to-b from-[#ffc46b] to-[#fc5f2f] bg-clip-text not-italic text-transparent">
+                  {children}
+                </em>
+              ),
+            }}
+          />
+          <div className="prose text-center text-lg md:text-xl mt-5">
+            <PrismicRichText field={slice.primary.subheading} />
+          </div>
+        </div>
+      )}
+
       <div ref={sliderRef} className="keen-slider h-[500px] rounded-xl">
         {slice.primary.element.length > 1 &&
           slice.primary.element.map((item, index) => (
@@ -43,9 +89,9 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
               <PrismicNextImage
                 field={item.image}
                 alt=""
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
-              <h3 className="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-md text-lg">
+              <h3 className="absolute bottom-4 left-4 rounded-md bg-black/50 px-3 py-1 text-lg text-white">
                 {item.tag}
               </h3>
             </div>
@@ -54,14 +100,14 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
 
       {loaded && instanceRef.current && (
         <div className="absolute bottom-4 right-4 flex items-center gap-4">
-          <span className="bg-black/50 text-white px-3 py-1 rounded-md text-sm">
+          <span className="rounded-md bg-black/50 px-3 py-1 text-sm text-white">
             {currentSlide + 1}/{instanceRef.current.track.details.slides.length}
           </span>
-          
+
           <div className="flex gap-2">
             <button
               onClick={() => instanceRef.current?.prev()}
-              className="bg-white/80 hover:bg-white p-2 rounded-full"
+              className="rounded-full bg-white/80 p-2 hover:bg-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +115,7 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -81,7 +127,7 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
 
             <button
               onClick={() => instanceRef.current?.next()}
-              className="bg-white/80 hover:bg-white p-2 rounded-full"
+              className="rounded-full bg-white/80 p-2 hover:bg-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +135,7 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"

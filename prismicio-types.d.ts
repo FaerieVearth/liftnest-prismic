@@ -677,6 +677,26 @@ export interface ImagesSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   element: prismic.GroupField<Simplify<ImagesSliceDefaultPrimaryElementItem>>;
+
+  /**
+   * heading field in *Images → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * subheading field in *Images → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images.default.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subheading: prismic.RichTextField;
 }
 
 /**

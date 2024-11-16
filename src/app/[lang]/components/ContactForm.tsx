@@ -59,8 +59,6 @@ const ContactForm = ({
         message: formData.message
       };
 
-      console.log(emailParams);
-
       const res = await emailjs.send(serviceID, templateID, emailParams, userID);
 
       if (res.status === 200) {

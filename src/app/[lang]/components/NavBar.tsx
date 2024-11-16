@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import LogoText from "@/app/components/LogoText";
+import LogoText from "@/app/[lang]/components/LogoText";
 import Link from "next/link";
 import { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
-import ButtonLink from "@/app/components/ButtonLink";
+import ButtonLink from "@/app/[lang]/components/ButtonLink";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
@@ -38,23 +38,18 @@ export default function NavBar({
           <div className="flex items-center gap-8">
             <ul className="hidden items-center justify-center gap-3 lg:flex">
               {settings.data.navigation.map((item) => {
-                if (item.cta_button) {
+                if (!item.cta_button) {
                   return (
                     <li key={item.label}>
-                      <ButtonLink field={item.link}>{item.label}</ButtonLink>
-                    </li>
-                  );
-                }
-                return (
-                  <li key={item.label}>
                     <PrismicNextLink
                       field={item.link}
                       className="relative inline-flex h-fit min-w-24 justify-center rounded-md px-4 py-2 text-black outline-none transition-colors hover:bg-[#393939] hover:text-white"
                     >
-                      {item.label}
-                    </PrismicNextLink>
-                  </li>
-                );
+                        {item.label}
+                      </PrismicNextLink>
+                    </li>
+                  );
+                }
               })}
             </ul>
             <LanguageSwitcher
@@ -85,32 +80,17 @@ export default function NavBar({
             </div>
             <div className="flex h-full flex-col items-center justify-start pt-16">
               <ul className="flex w-full flex-col items-center gap-4">
-                {settings.data.navigation.map((item) => {
-                  if (item.cta_button) {
-                    return (
-                      <li key={item.label}>
-                        <ButtonLink
-                          field={item.link}
-                          className="w-44"
-                          onClick={() => setMenuOpen(false)}
-                        >
-                          {item.label}
-                        </ButtonLink>
-                      </li>
-                    );
-                  }
-                  return (
-                    <li key={item.label}>
-                      <PrismicNextLink
-                        field={item.link}
-                        className="relative inline-flex h-fit w-44 min-w-24 justify-center rounded-md border border-[#393939] px-4 py-2 text-[#393939] outline-none ring-[#393939] transition-colors hover:border-[#393939] hover:text-[#393939] after:hover:bg-opacity-15 focus:ring-2"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {item.label}
-                      </PrismicNextLink>
-                    </li>
-                  );
-                })}
+                {settings.data.navigation.map((item) => (
+                  <li key={item.label}>
+                    <ButtonLink
+                      field={item.link}
+                      className="w-44"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {item.label}
+                    </ButtonLink>
+                  </li>
+                ))}
                 <LanguageSwitcher
                   locales={locales}
                   activeLocale={activeLocale}

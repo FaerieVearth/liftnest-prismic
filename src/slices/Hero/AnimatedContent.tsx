@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import ButtonLink from "@/app/components/ButtonLink";
+import ButtonLink from "@/app/[lang]/components/ButtonLink";
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicText } from "@prismicio/react";

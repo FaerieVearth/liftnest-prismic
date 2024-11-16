@@ -5,7 +5,7 @@ import * as prismic from "@prismicio/client";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
+import { LanguageSwitcher } from "@/app/[lang]/components/LanguageSwitcher";
 import { getLocales } from "@/app/utils/getLocales";
 // This component renders your homepage.
 //
