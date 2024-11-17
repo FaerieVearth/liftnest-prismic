@@ -77,7 +77,8 @@
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "http://google.com"
+					"url": "https://slicemachine.dev",
+					"text": "close"
 				}
 			}
 		},
@@ -157,7 +158,8 @@
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev"
+					"url": "https://slicemachine.dev",
+					"text": "ready"
 				}
 			}
 		},

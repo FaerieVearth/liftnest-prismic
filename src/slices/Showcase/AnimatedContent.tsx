@@ -25,17 +25,17 @@ export default function AnimatedContent({
       {
         y: 0,
         opacity: 1,
-        duration: 0.9,
+        duration: 0.7,
         scrollTrigger: {
           trigger: container.current,
-          start: "top bottom-=40%",
+          start: "top 90%",
           toggleActions: "play pause resume reverse",
         },
       },
     );
   });
   return (
-    <div ref={container} className="opacity-0 mb-8 mt-12">
+    <div ref={container} className="opacity-0 mb-8">
       {children}
     </div>
   );

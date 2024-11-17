@@ -16,7 +16,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
     <Bounded
-      className="text-center"
+      className="text-center my-4"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

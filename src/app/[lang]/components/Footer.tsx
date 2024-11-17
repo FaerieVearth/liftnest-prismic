@@ -7,7 +7,7 @@ export default async function Footer({ activeLocale }: { activeLocale: string })
   const client = createClient();
   const settings = await client.getSingle("settings", { lang: activeLocale });
   return (
-    <footer className="flex flex-col items-center justify-between gap-6 border-t bg-[#383D2A] border-slate-600 px-8 py-7 md:flex-row">
+    <footer className="flex flex-col items-center justify-between gap-6 border-t bg-[#383D2A] border-[#FBF8EF] px-8 py-7 md:flex-row">
       <Link href="/">
         <LogoText width={229} height={64} color="white" />
         <span className="sr-only">the lift nest Home Page</span>

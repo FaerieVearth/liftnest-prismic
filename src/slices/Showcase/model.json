@@ -70,7 +70,9 @@
           "config": {
             "label": "Button Link",
             "placeholder": "",
-            "select": null
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
           }
         }
       },
@@ -142,7 +144,9 @@
           "config": {
             "label": "Button Link",
             "placeholder": "",
-            "select": null
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
           }
         }
       },

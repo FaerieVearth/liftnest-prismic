@@ -15,7 +15,7 @@ const Faq = ({ slice }: FaqProps): JSX.Element => {
   };
   return (
     <Bounded
-      className="text-start"
+      className="text-start my-4"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

@@ -21,6 +21,7 @@ const Bento = ({ slice }: BentoProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="my-4"
     >
       <PrismicRichText
         field={slice.primary.heading}
@@ -45,7 +46,7 @@ const Bento = ({ slice }: BentoProps): JSX.Element => {
         {slice.items.map((item, index) => (
           <div
             className={clsx(
-              "glass-container row-span-3 grid grid-rows-subgrid gap-4 rounded-lg bg-gradient-to-b from-[#f2f2f3] to-[#d4d4d8] p-4",
+              "glass-container row-span-3 grid grid-rows-subgrid gap-4 rounded-lg bg-[#383D2A] text-white p-4",
               item.wide ? "md:col-span-2" : "md:col-span-1",
             )}
             key={index}
@@ -56,7 +57,7 @@ const Bento = ({ slice }: BentoProps): JSX.Element => {
             <div className="max-w-md text-balance">
               <PrismicRichText field={item.body} />
             </div>
-            <PrismicNextImage field={item.image} className="max-h-46 w-auto" alt=""/>
+            <PrismicNextImage field={item.image} className="max-h-46 w-auto rounded-lg" alt=""/>
           </div>
         ))}
       </div>

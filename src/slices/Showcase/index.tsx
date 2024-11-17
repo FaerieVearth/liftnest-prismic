@@ -25,7 +25,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative"
+      className="relative mb-4"
     >
       {slice.primary.heading && slice.primary.heading.length > 0 && (
         <AnimatedContent>
@@ -39,15 +39,15 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
             ),
             em: ({ children }) => (
               <em className="bg-gradient-to-b from-[#ffc46b] to-[#fc5f2f] bg-clip-text not-italic text-transparent">
-                {children}
-              </em>
+              {children}
+            </em>
             ),
           }}
         />
         </AnimatedContent>
       )}
 
-      <div className="grid items-center rounded-xl bg-gradient-to-b from-[#fc5f2f]/10 to-[#fc5f2f]/5 px-8 py-8 backdrop-blur-sm lg:grid-cols-3 lg:py-12">
+      <div className="grid items-center rounded-xl bg-gradient-to-b from-[#383D2A]/20 to-[#383D2A]/5 px-8 py-8 backdrop-blur-sm lg:grid-cols-3 lg:py-12">
         <div>
           {/*           <div className="w-fit rounded-lg bg-blue-300/35 p-4 text-4xl">
             {slice.primary.icon && icons[slice.primary.icon]}
@@ -58,7 +58,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
           <div className="prose mt-4 max-w-xl">
             <PrismicRichText field={slice.primary.body} />
           </div>
-          {slice.primary.button_text && (
+          {slice.primary.button_text && slice.primary.button_link && (
             <ButtonLink
               field={slice.primary.button_link}
               className="mb-6 mt-6 bg-[#383D2A] text-white lg:mb-0"

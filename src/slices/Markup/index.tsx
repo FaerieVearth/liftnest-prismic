@@ -12,8 +12,9 @@ const Markup = ({ slice }: MarkupProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="my-4"
     >
-      <div className="prose prose-lg prose-invert mx-auto my-4 md:my-8">
+      <div className="prose prose-lg prose-invert mx-auto">
         {slice.primary.title && (
           <h2 className="w-full mb-8 text-3xl font-semibold text-center md:text-5xl">
             {slice.primary.title}

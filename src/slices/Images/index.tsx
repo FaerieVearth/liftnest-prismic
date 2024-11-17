@@ -34,7 +34,7 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative"
+      className="relative my-4"
     >
       {/*       <AnimatedContent>
         <div className="mb-8 mt-12">

@@ -2,6 +2,7 @@
 
 import { cn } from "@nextui-org/react";
 import { PrismicNextLink } from "@prismicio/next";
+import { usePathname } from "next/navigation";
 
 interface LanguageSwitcherProps {
   locales: {
@@ -26,12 +27,28 @@ export const LanguageSwitcher = ({
   activeLocale,
   className,
 }: LanguageSwitcherProps) => {
+  const pathname = usePathname();
+  
   // Sort locales based on predefined order
   const sortedLocales = [...locales].sort(
     (a, b) =>
       localeOrder.indexOf(a.lang as (typeof localeOrder)[number]) -
       localeOrder.indexOf(b.lang as (typeof localeOrder)[number]),
   );
+
+  const getLocalizedPath = (locale: string) => {
+    // Remove the language prefix from the current pathname
+    const pathWithoutLang = pathname.replace(/^\/(?:en-us|de-de)/, '');
+    
+    // For default language (de-de), don't add prefix
+    if (locale === 'de-de') {
+      return pathWithoutLang || '/';
+    }
+    
+    // For other languages, add the prefix
+    return `/${locale}${pathWithoutLang}`;
+  };
+
   return (
     <div className={cn(`flex flex-row items-center gap-2`, className)}>
       <ul className="flex flex-row gap-2">
@@ -45,7 +62,7 @@ export const LanguageSwitcher = ({
           return (
             <li key={locale.lang}>
               <PrismicNextLink
-                href={locale.url}
+                href={getLocalizedPath(locale.lang)}
                 locale={locale.lang}
                 aria-label={`Change language to ${locale.lang_name}`}
                 aria-current={isCurrentLocale ? "true" : undefined}
