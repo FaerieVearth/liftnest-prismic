@@ -15,7 +15,7 @@ const Faq = ({ slice }: FaqProps): JSX.Element => {
   };
   return (
     <Bounded
-      className="text-start my-4"
+      className="text-start mt-6 mb-8 md:mb-12"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
@@ -23,7 +23,7 @@ const Faq = ({ slice }: FaqProps): JSX.Element => {
         field={slice.primary.title}
         components={{
           heading2: ({ children }) => (
-            <h2 className="bg-gradient-to-b from-[#ffc46b] to-[#fc5f2f] bg-clip-text not-italic text-transparent mx-auto mb-4 max-w-2xl text-balance text-center text-4xl font-bold md:text-5xl">
+            <h2 className="mx-auto mb-4 max-w-2xl text-balance text-center text-4xl font-bold md:text-5xl">
               {children}
             </h2>
           ),

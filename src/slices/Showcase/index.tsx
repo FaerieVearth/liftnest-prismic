@@ -47,12 +47,9 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
         </AnimatedContent>
       )}
 
-      <div className="grid items-center rounded-xl bg-gradient-to-b from-[#383D2A]/20 to-[#383D2A]/5 px-8 py-8 backdrop-blur-sm lg:grid-cols-3 lg:py-12">
-        <div>
-          {/*           <div className="w-fit rounded-lg bg-blue-300/35 p-4 text-4xl">
-            {slice.primary.icon && icons[slice.primary.icon]}
-          </div> */}
-          <div className="prose mt-6 text-3xl font-normal">
+      <div className="mx-auto max-w-7xl grid items-center rounded-xl px-8 py-8 backdrop-blur-sm lg:grid-cols-2 lg:py-12 gap-8">
+        <div className="w-full">
+          <div className="prose mt-6 text-3xl lg:text-5xl font-medium">
             <PrismicRichText field={slice.primary.subheading} />
           </div>
           <div className="prose mt-4 max-w-xl">
@@ -71,10 +68,10 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
           field={slice.primary.image}
           alt=""
           className={clsx(
-            "max-h-[400px] rounded-xl object-cover opacity-90 shadow-2xl lg:col-span-2 lg:pt-0",
+            "w-full h- aspect-[5/4] rounded-xl object-cover opacity-90 lg:pt-0 border-2 border-gray",
             slice.variation === "reverse"
-              ? "lg:order-1 lg:translate-x-[15%]"
-              : "lg:-order-1 lg:translate-x-[-15%]",
+              ? "lg:order-1"
+              : "lg:-order-1"
           )}
         />
       </div>

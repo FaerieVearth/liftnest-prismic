@@ -49,25 +49,22 @@ export default function AnimatedContent({
         { scale: 1, opacity: 1, duration: 0.8 },
         "-=0.6",
       );
-
-      tl.fromTo(".hero__glow", {}, { opacity: 1, duration: 2.4 });
     },
     { scope: container },
   );
 
   return (
-    <div className="relative min-h-[600px] w-full" ref={container}>
+    <div className="relative min-h-[800px] w-full flex flex-col justify-end" ref={container}>
       {(isFilled.image(slice.primary.image) ||
         isFilled.keyText(slice.primary.video_url)) && (
         <div className="hero__image absolute inset-0 opacity-0 rounded-2xl">
-          <div className="hero__glow absolute inset-0 -z-10 bg-[#B28160]/25 opacity-0 blur-[150px] filter" />
           {isFilled.keyText(slice.primary.video_url) && (
             <video
               playsInline
               autoPlay
               muted
               loop
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-2xl border-2 border-gray"
             >
               <source src={slice.primary.video_url} />
             </video>
@@ -75,7 +72,7 @@ export default function AnimatedContent({
           {isFilled.image(slice.primary.image) &&
             !isFilled.keyText(slice.primary.video_url) && (
               <PrismicNextImage
-                className="h-full w-full object-cover rounded-2xl"
+                className="h-full w-full object-cover rounded-2xl border-2 border-gray"
                 field={slice.primary.image}
                 alt=""
               />

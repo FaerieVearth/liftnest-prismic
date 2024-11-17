@@ -82,7 +82,7 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
         </div>
       )}
 
-      <div ref={sliderRef} className="keen-slider h-[500px] rounded-xl">
+      <div ref={sliderRef} className="keen-slider h-[400px] lg:h-[800px] rounded-xl">
         {slice.primary.element.length > 1 &&
           slice.primary.element.map((item, index) => (
             <div key={index} className="keen-slider__slide relative">
