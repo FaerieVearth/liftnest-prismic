@@ -1,6 +1,6 @@
 import Bounded from "@/app/[lang]/components/Bounded";
 import ButtonLink from "@/app/[lang]/components/ButtonLink";
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PiArrowsClockwise, PiGear } from "react-icons/pi";
@@ -64,12 +64,12 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
             </ButtonLink>
           )}
         </div>
-        {(slice.primary.image.isFilled || slice.primary.video?.url) && (
+        {(isFilled.image(slice.primary.image) || isFilled.link(slice.primary.video)) && (
           <div className={clsx(
             "w-full aspect-[5/4]",
             slice.variation === "reverse" ? "lg:order-1" : "lg:-order-1"
           )}>
-            {slice.primary.video?.url ? (
+            {isFilled.link(slice.primary.video) ? (
               <video
                 playsInline
                 autoPlay

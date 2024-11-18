@@ -55,9 +55,9 @@ export default function AnimatedContent({
   return (
     <div className="relative min-h-[800px] w-full flex flex-col justify-end" ref={container}>
       {(isFilled.image(slice.primary.image) ||
-        slice.primary.video.url) && (
+        isFilled.link(slice.primary.video)) && (
         <div className="hero__image absolute inset-0 opacity-0 rounded-2xl">
-          {slice.primary.video.url && (
+          {isFilled.link(slice.primary.video) && (
             <video
               playsInline
               autoPlay
@@ -69,7 +69,7 @@ export default function AnimatedContent({
             </video>
           )}
           {isFilled.image(slice.primary.image) &&
-            !slice.primary.video.url && (
+            !isFilled.link(slice.primary.video) && (
               <PrismicNextImage
                 className="h-full w-full object-cover rounded-2xl"
                 field={slice.primary.image}
