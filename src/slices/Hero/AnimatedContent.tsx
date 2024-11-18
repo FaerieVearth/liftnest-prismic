@@ -52,27 +52,26 @@ export default function AnimatedContent({
     },
     { scope: container },
   );
-
   return (
     <div className="relative min-h-[800px] w-full flex flex-col justify-end" ref={container}>
       {(isFilled.image(slice.primary.image) ||
-        isFilled.keyText(slice.primary.video_url)) && (
+        slice.primary.video.url) && (
         <div className="hero__image absolute inset-0 opacity-0 rounded-2xl">
-          {isFilled.keyText(slice.primary.video_url) && (
+          {slice.primary.video.url && (
             <video
               playsInline
               autoPlay
               muted
               loop
-              className="h-full w-full object-cover rounded-2xl border-2 border-gray"
+              className="h-full w-full object-cover rounded-2xl"
             >
-              <source src={slice.primary.video_url} />
+              <source src={slice.primary.video.url} />
             </video>
           )}
           {isFilled.image(slice.primary.image) &&
-            !isFilled.keyText(slice.primary.video_url) && (
+            !slice.primary.video.url && (
               <PrismicNextImage
-                className="h-full w-full object-cover rounded-2xl border-2 border-gray"
+                className="h-full w-full object-cover rounded-2xl"
                 field={slice.primary.image}
                 alt=""
               />

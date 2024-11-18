@@ -80,6 +80,14 @@
 					"url": "https://slicemachine.dev",
 					"text": "close"
 				}
+			},
+			"video": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "material"
+				}
 			}
 		},
 		"items": []
@@ -160,6 +168,14 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev",
 					"text": "ready"
+				}
+			},
+			"video": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "massage"
 				}
 			}
 		},

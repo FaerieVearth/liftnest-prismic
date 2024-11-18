@@ -53,11 +53,14 @@
             "thumbnails": []
           }
         },
-        "video_url": {
-          "type": "Text",
+        "video": {
+          "type": "Link",
           "config": {
-            "label": "Video URL",
-            "placeholder": ""
+            "label": "video",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
           }
         }
       },

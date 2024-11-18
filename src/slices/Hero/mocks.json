@@ -60,10 +60,13 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"video_url": {
-				"__TYPE__": "FieldContent",
-				"value": "proud",
-				"type": "Text"
+			"video": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "weak"
+				}
 			}
 		},
 		"items": []

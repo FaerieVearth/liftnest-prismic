@@ -64,16 +64,30 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
             </ButtonLink>
           )}
         </div>
-        <PrismicNextImage
-          field={slice.primary.image}
-          alt=""
-          className={clsx(
-            "w-full h- aspect-[5/4] rounded-xl object-cover opacity-90 lg:pt-0 border-2 border-gray",
-            slice.variation === "reverse"
-              ? "lg:order-1"
-              : "lg:-order-1"
-          )}
-        />
+        {(slice.primary.image.isFilled || slice.primary.video?.url) && (
+          <div className={clsx(
+            "w-full aspect-[5/4]",
+            slice.variation === "reverse" ? "lg:order-1" : "lg:-order-1"
+          )}>
+            {slice.primary.video?.url ? (
+              <video
+                playsInline
+                autoPlay
+                muted
+                loop
+                className="w-full h-full object-cover rounded-xl"
+              >
+                <source src={slice.primary.video.url} />
+              </video>
+            ) : (
+              <PrismicNextImage
+                field={slice.primary.image}
+                alt=""
+                className="w-full h-full rounded-xl object-cover opacity-90"
+              />
+            )}
+          </div>
+        )}
       </div>
     </Bounded>
   );

@@ -74,6 +74,16 @@
             "select": null,
             "allowText": true
           }
+        },
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "video",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
         }
       },
       "items": {}
@@ -143,6 +153,16 @@
           "type": "Link",
           "config": {
             "label": "Button Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
+        },
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "video",
             "placeholder": "",
             "allowTargetBlank": true,
             "select": null,

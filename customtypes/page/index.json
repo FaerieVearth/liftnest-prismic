@@ -42,9 +42,6 @@
             "showcase": {
               "type": "SharedSlice"
             },
-            "bento": {
-              "type": "SharedSlice"
-            },
             "hero": {
               "type": "SharedSlice"
             },
