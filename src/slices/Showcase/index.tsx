@@ -70,21 +70,44 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
             slice.variation === "reverse" ? "lg:order-1" : "lg:-order-1"
           )}>
             {isFilled.link(slice.primary.video) ? (
-              <video
-                playsInline
-                autoPlay
-                muted
-                loop
-                className="w-full h-full object-cover rounded-xl"
-              >
-                <source src={slice.primary.video.url} />
-              </video>
+              <>
+                <video
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full h-full object-cover rounded-xl hidden lg:block"
+                >
+                  <source src={slice.primary.video.url} />
+                </video>
+                <video
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full h-full object-cover rounded-xl lg:hidden"
+                >
+                  <source src={isFilled.link(slice.primary.video_mobile) 
+                    ? slice.primary.video_mobile.url 
+                    : slice.primary.video.url} 
+                  />
+                </video>
+              </>
             ) : (
-              <PrismicNextImage
-                field={slice.primary.image}
-                alt=""
-                className="w-full h-full rounded-xl object-cover opacity-90"
-              />
+              <>
+                <PrismicNextImage
+                  field={slice.primary.image}
+                  alt=""
+                  className="w-full h-full rounded-xl object-cover opacity-90 hidden lg:block"
+                />
+                <PrismicNextImage
+                  field={isFilled.image(slice.primary.image_mobile) 
+                    ? slice.primary.image_mobile 
+                    : slice.primary.image}
+                  alt=""
+                  className="w-full h-full rounded-xl object-cover opacity-90 lg:hidden"
+                />
+              </>
             )}
           </div>
         )}

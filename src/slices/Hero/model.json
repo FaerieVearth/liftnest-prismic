@@ -62,6 +62,31 @@
             "select": null,
             "allowText": true
           }
+        },
+        "image_mobile": {
+          "type": "Image",
+          "config": {
+            "label": "image mobile",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video_mobile": {
+          "type": "Link",
+          "config": {
+            "label": "video mobile",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
+        },
+        "font_color": {
+          "type": "Color",
+          "config": {
+            "label": "font color",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

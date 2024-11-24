@@ -55,31 +55,61 @@ export default function AnimatedContent({
   return (
     <div className="relative min-h-[800px] w-full flex flex-col justify-end" ref={container}>
       {(isFilled.image(slice.primary.image) ||
-        isFilled.link(slice.primary.video)) && (
+        isFilled.image(slice.primary.image_mobile) ||
+        isFilled.link(slice.primary.video) ||
+        isFilled.link(slice.primary.video_mobile)) && (
         <div className="hero__image absolute inset-0 opacity-0 rounded-2xl">
+          {/* Mobile Video */}
+          {isFilled.link(slice.primary.video_mobile) && (
+            <video
+              playsInline
+              autoPlay
+              muted
+              loop
+              className="h-full w-full object-cover rounded-2xl md:hidden"
+            >
+              <source src={slice.primary.video_mobile.url} />
+            </video>
+          )}
+          
+          {/* Desktop Video */}
           {isFilled.link(slice.primary.video) && (
             <video
               playsInline
               autoPlay
               muted
               loop
-              className="h-full w-full object-cover rounded-2xl"
+              className="hidden h-full w-full object-cover rounded-2xl md:block"
             >
               <source src={slice.primary.video.url} />
             </video>
           )}
-          {isFilled.image(slice.primary.image) &&
-            !isFilled.link(slice.primary.video) && (
-              <PrismicNextImage
-                className="h-full w-full object-cover rounded-2xl"
-                field={slice.primary.image}
-                alt=""
-              />
-            )}
+
+          {/* Mobile Image */}
+          {isFilled.image(slice.primary.image_mobile) && !isFilled.link(slice.primary.video_mobile) && (
+            <PrismicNextImage
+              className="h-full w-full object-cover rounded-2xl md:hidden"
+              field={slice.primary.image_mobile}
+              alt=""
+            />
+          )}
+
+          {/* Desktop Image (fallback for mobile if mobile image not provided) */}
+          {isFilled.image(slice.primary.image) && !isFilled.link(slice.primary.video) && (
+            <PrismicNextImage
+              className={`h-full w-full object-cover rounded-2xl ${
+                isFilled.image(slice.primary.image_mobile) ? 'hidden md:block' : 'block'
+              }`}
+              field={slice.primary.image}
+              alt=""
+            />
+          )}
         </div>
       )}
 
-      <div className="relative z-10 flex min-h-[600px] flex-col items-start justify-end p-8 lg:p-12 text-white">
+      <div className="relative z-10 flex min-h-[600px] flex-col items-start justify-end p-8 lg:p-12" style={{
+        color: slice.primary.font_color ? slice.primary.font_color : "black",
+      }}>
         {isFilled.richText(slice.primary.heading) && (
           <h1 className="hero__heading prose text-balance text-start text-5xl font-medium opacity-0 md:text-7xl">
             <PrismicText field={slice.primary.heading} />

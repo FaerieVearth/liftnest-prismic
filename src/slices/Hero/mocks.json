@@ -67,6 +67,42 @@
 					"url": "https://slicemachine.dev",
 					"text": "weak"
 				}
+			},
+			"image_mobile": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+					"width": 4480,
+					"height": 4480
+				},
+				"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+				"width": 4480,
+				"height": 4480,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"video_mobile": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "clean"
+				}
+			},
+			"font_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#6c8c8f",
+				"type": "Color"
 			}
 		},
 		"items": []

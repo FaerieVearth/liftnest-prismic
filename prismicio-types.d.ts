@@ -511,6 +511,36 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   video: prismic.LinkField;
+
+  /**
+   * image mobile field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.image_mobile
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_mobile: prismic.ImageField<never>;
+
+  /**
+   * video mobile field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.video_mobile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_mobile: prismic.LinkField;
+
+  /**
+   * font color field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.font_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  font_color: prismic.ColorField;
 }
 
 /**
@@ -807,6 +837,26 @@ export interface ShowcaseSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   video: prismic.LinkField;
+
+  /**
+   * image mobile field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.image_mobile
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_mobile: prismic.ImageField<never>;
+
+  /**
+   * video mobile field in *Showcase → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.default.primary.video_mobile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_mobile: prismic.LinkField;
 }
 
 /**
@@ -905,6 +955,26 @@ export interface ShowcaseSliceReversePrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   video: prismic.LinkField;
+
+  /**
+   * image mobile field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.image_mobile
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_mobile: prismic.ImageField<never>;
+
+  /**
+   * video mobile field in *Showcase → Reverse → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.reverse.primary.video_mobile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_mobile: prismic.LinkField;
 }
 
 /**
