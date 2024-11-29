@@ -53,7 +53,7 @@ export default function AnimatedContent({
     { scope: container },
   );
   return (
-    <div className="relative min-h-[800px] w-full flex flex-col justify-end" ref={container}>
+    <div className="relative min-h-[450px] lg:min-h-[620px] w-full flex flex-col justify-end" ref={container}>
       {(isFilled.image(slice.primary.image) ||
         isFilled.image(slice.primary.image_mobile) ||
         isFilled.link(slice.primary.video) ||
@@ -107,7 +107,7 @@ export default function AnimatedContent({
         </div>
       )}
 
-      <div className="relative z-10 flex min-h-[600px] flex-col items-start justify-end p-8 lg:p-12" style={{
+      <div className="relative z-10 flex lg:min-h-[600px] flex-col items-start justify-end p-8 lg:p-12" style={{
         color: slice.primary.font_color ? slice.primary.font_color : "black",
       }}>
         {isFilled.richText(slice.primary.heading) && (
