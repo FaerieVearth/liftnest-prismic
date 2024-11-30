@@ -6,6 +6,7 @@ import { Lora } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { getLocales } from "../utils/getLocales";
+import Head from "next/head";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -31,6 +32,9 @@ export default async function RootLayout({
   const locales = await getLocales(home, client);
   return (
     <html lang="en" className={`${lora.variable}`}>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body className="bg-[#FBF8EF] text-[#111410] min-h-screen flex flex-col justify-between">
         <Header locales={locales} activeLocale={lang} />
         {children}
